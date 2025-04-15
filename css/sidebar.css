@@ -1,0 +1,167 @@
+/* Sidebar Navigation Styles */
+.app-container {
+    display: flex;
+    width: 100%;
+    min-height: 100vh;
+    position: relative;
+}
+
+.sidebar {
+    width: 250px;
+    background: rgba(255, 255, 255, 0.92);
+    box-shadow: 2px 0 10px rgba(0, 0, 0, 0.1);
+    padding: 1.5rem 0;
+    display: flex;
+    flex-direction: column;
+    position: absolute;
+    left: -250px; /* Hidden by default */
+    top: 0;
+    height: 100%;
+    transition: all 0.3s ease;
+    z-index: 100;
+    border-right: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+.sidebar.visible {
+    left: 0; /* Show when visible class is added */
+}
+
+.sidebar-toggle {
+    position: fixed;
+    top: 15px;
+    left: 15px;
+    width: 40px;
+    height: 40px;
+    background: rgba(255, 255, 255, 0.9);
+    border-radius: 50%;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    cursor: pointer;
+    box-shadow: 0 2px 5px rgba(0, 0, 0, 0.15);
+    z-index: 1001; /* Ensure it's above the sidebar */
+    border: 1px solid rgba(0, 0, 0, 0.1);
+}
+
+
+.sidebar-toggle svg {
+    width: 24px;
+    height: 24px;
+    fill: #555;
+}
+
+.sidebar-toggle:hover {
+    background: white;
+}
+
+.sidebar-header {
+    padding: 0 1.5rem 0.5rem;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    margin-top: 30px; /* Add top margin to avoid overlap */
+}
+
+.sidebar-header h2 {
+    font-size: 1.2rem;
+    font-weight: 600;
+    color: #2c3e50;
+}
+
+.clear-btn {
+    background: none;
+    border: none;
+    padding: 5px;
+    cursor: pointer;
+    border-radius: 50%;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    transition: background-color 0.2s;
+}
+
+.clear-btn:hover {
+    background-color: rgba(0, 0, 0, 0.05);
+}
+
+.clear-btn svg {
+    width: 20px;
+    height: 20px;
+    fill: #e74c3c;
+}
+
+.divider {
+    height: 1px;
+    background: rgba(0, 0, 0, 0.1);
+    margin: 0.5rem 0;
+}
+
+.history-list {
+    display: flex;
+    flex-direction: column;
+    flex-grow: 1;
+    overflow-y: auto;
+}
+
+.history-item {
+    padding: 0.8rem 1.5rem;
+    cursor: pointer;
+    transition: all 0.2s ease;
+    border-left: 3px solid transparent;
+    display: flex;
+    align-items: center;
+    color: #34495e; /* Change the color of city names */
+}
+
+.history-item:hover {
+    background: rgba(52, 152, 219, 0.1);
+    border-left-color: var(--primary-color);
+}
+
+.history-icon {
+    margin-right: 10px;
+    width: 16px;
+    height: 16px;
+    opacity: 0.6;
+}
+
+.empty-history {
+    padding: 1.5rem;
+    color: var(--light-text);
+    text-align: center;
+    font-style: italic;
+}
+
+/* Main content with padding for toggle button */
+.main-content {
+    flex-grow: 1;
+    padding: 1rem;
+    padding-left: 60px; /* Make room for toggle button */
+    transition: padding 0.3s ease;
+}
+
+/* When sidebar is visible, adjust main content */
+.main-content.sidebar-visible {
+    padding-left: 270px; /* sidebar width (250px) + padding (20px) */
+}
+
+/* Mobile responsive behavior */
+@media (max-width: 768px) {
+    .sidebar {
+        width: 80%;
+        max-width: 250px;
+        left: -80%;
+    }
+    
+    .main-content {
+        padding-left: 60px;
+    }
+    
+    .main-content.sidebar-visible {
+        padding-left: 1rem;
+    }
+    
+    .history-list {
+        max-height: 200px;
+    }
+}

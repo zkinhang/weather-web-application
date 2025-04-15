@@ -1,0 +1,181 @@
+/* Enhanced Weather icon animations */
+
+/* Sunny animation - more dramatic pulsing and rotation */
+.weather-icon.sunny {
+    animation: sunny-enhanced 3s infinite ease-in-out;
+    filter: drop-shadow(0 0 10px rgba(255, 200, 0, 0.6));
+}
+
+@keyframes sunny-enhanced {
+    0%, 100% { transform: scale(1) rotate(0deg); filter: brightness(1) saturate(1); }
+    50% { transform: scale(1.25) rotate(15deg); filter: brightness(1.4) saturate(1.3); }
+}
+
+/* Rainy animation - more dramatic movement */
+.weather-icon.rainy {
+    animation: rainy-enhanced 2s infinite ease-in-out;
+    filter: drop-shadow(0 0 5px rgba(28, 156, 223, 0.7));
+}
+
+@keyframes rainy-enhanced {
+    0% { transform: translateY(0) rotate(0deg) scale(1); }
+    25% { transform: translateY(-8px) rotate(-5deg) scale(0.95); }
+    50% { transform: translateY(3px) rotate(0deg) scale(1); }
+    75% { transform: translateY(-5px) rotate(5deg) scale(1.05); }
+    100% { transform: translateY(0) rotate(0deg) scale(1); }
+}
+
+/* Cloudy animation - more floating movement */
+.weather-icon.cloudy {
+    animation: cloudy-enhanced 6s infinite ease-in-out;
+    filter: drop-shadow(0 0 8px rgba(158, 168, 173, 0.5));
+}
+
+@keyframes cloudy-enhanced {
+    0% { transform: translateX(0) translateY(0) scale(1); }
+    25% { transform: translateX(8px) translateY(-5px) scale(1.05); }
+    50% { transform: translateX(15px) translateY(0) scale(1); }
+    75% { transform: translateX(4px) translateY(5px) scale(0.95); }
+    100% { transform: translateX(0) translateY(0) scale(1); }
+}
+
+/* Snowy animation - more dramatic falling */
+.weather-icon.snowy {
+    animation: snowy-enhanced 4s infinite ease-in-out;
+    filter: drop-shadow(0 0 10px rgba(255, 255, 255, 0.8));
+}
+
+@keyframes snowy-enhanced {
+    0% { transform: translateY(0) rotate(0deg) scale(1); filter: brightness(1); }
+    25% { transform: translateY(5px) rotate(5deg) scale(0.95); filter: brightness(1.05); }
+    50% { transform: translateY(10px) rotate(10deg) scale(1.05); filter: brightness(1.1); }
+    75% { transform: translateY(5px) rotate(-5deg) scale(0.95); filter: brightness(1.05); }
+    100% { transform: translateY(0) rotate(0deg) scale(1); filter: brightness(1); }
+}
+
+/* Thunderstorm animation - more dramatic flashing */
+.weather-icon.thunder {
+    animation: thunder-enhanced 3s infinite;
+    filter: drop-shadow(0 0 5px rgba(255, 255, 0, 0.3));
+}
+
+@keyframes thunder-enhanced {
+    0%, 24%, 30%, 40%, 49%, 60%, 75%, 100% { 
+        filter: brightness(1) contrast(1); 
+        transform: scale(1);
+    }
+    25%, 39% { 
+        filter: brightness(1.8) contrast(1.2); 
+        transform: scale(1.1) rotate(-2deg);
+    }
+    50%, 59% { 
+        filter: brightness(2) contrast(1.3); 
+        transform: scale(1.2) rotate(3deg);
+    }
+}
+
+/* Mist/fog animation - more dramatic fading */
+.weather-icon.mist {
+    animation: mist-enhanced 4s infinite ease-in-out;
+    filter: blur(0.5px);
+}
+
+@keyframes mist-enhanced {
+    0% { opacity: 0.7; transform: scale(0.95) translateX(-5px); filter: blur(0.5px); }
+    50% { opacity: 1; transform: scale(1.05) translateX(5px); filter: blur(0px); }
+    100% { opacity: 0.7; transform: scale(0.95) translateX(-5px); filter: blur(0.5px); }
+}
+
+/* Clear night animation - enhanced twinkling */
+.weather-icon.night {
+    animation: night-enhanced 4s infinite ease-in-out;
+    filter: drop-shadow(0 0 8px rgba(118, 172, 255, 0.6));
+}
+
+@keyframes night-enhanced {
+    0%, 100% { 
+        filter: brightness(1) drop-shadow(0 0 4px rgba(100, 150, 255, 0.5)); 
+        transform: scale(1) rotate(0deg);
+    }
+    50% { 
+        filter: brightness(1.3) drop-shadow(0 0 12px rgba(100, 150, 255, 0.8)); 
+        transform: scale(1.15) rotate(5deg);
+    }
+}
+
+.day-box .weather-icon {
+    width: 40px;
+    height: 40px;
+    margin: 0.3rem 0;
+    filter: none !important; /* Remove any filter effects causing blur */
+}
+
+/* Day box forecast animations - also enhanced but slightly less dramatic */
+.day-box .weather-icon.sunny {
+    animation: sunny-enhanced 4s infinite ease-in-out;
+    animation-delay: calc(var(--order) * 0.2s);
+}
+
+.day-box .weather-icon.rainy {
+    animation: rainy-enhanced 3s infinite ease-in-out;
+    animation-delay: calc(var(--order) * 0.2s);
+}
+
+.day-box .weather-icon.cloudy {
+    animation: cloudy-enhanced 7s infinite ease-in-out;
+    animation-delay: calc(var(--order) * 0.2s);
+}
+
+.day-box .weather-icon.snowy {
+    animation: snowy-enhanced 5s infinite ease-in-out;
+    animation-delay: calc(var(--order) * 0.2s);
+}
+
+.day-box .weather-icon.thunder {
+    animation: thunder-enhanced 4s infinite;
+    animation-delay: calc(var(--order) * 0.2s);
+}
+
+.day-box .weather-icon.mist {
+    animation: mist-enhanced 5s infinite ease-in-out;
+    animation-delay: calc(var(--order) * 0.2s);
+}
+
+.day-box .weather-icon.night {
+    animation: night-enhanced 5s infinite ease-in-out;
+    animation-delay: calc(var(--order) * 0.2s);
+}
+
+/* Apply staggered animation delays with CSS variables */
+.day-box:nth-child(1) { --order: 0; }
+.day-box:nth-child(2) { --order: 1; }
+.day-box:nth-child(3) { --order: 2; }
+.day-box:nth-child(4) { --order: 3; }
+.day-box:nth-child(5) { --order: 4; }
+.day-box:nth-child(6) { --order: 5; }
+.day-box:nth-child(7) { --order: 6; }
+
+/* Add a nice hover effect to day boxes with enhanced transition */
+.day-box {
+    transition: all 0.3s cubic-bezier(0.175, 0.885, 0.32, 1.275);
+}
+
+.day-box:hover {
+    transform: translateY(-8px) scale(1.05);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.15);
+    background-color: rgba(52, 152, 219, 0.15);
+    z-index: 1;
+}
+
+
+/* Make the main current weather icon even more dramatic */
+.current-weather .weather-icon {
+    transform-origin: center;
+    filter: drop-shadow(0 0 10px rgba(0, 0, 0, 0.2));
+    transition: all 0.3s ease;
+}
+
+.current-weather .weather-icon:hover {
+    transform: scale(1.2);
+}
+
