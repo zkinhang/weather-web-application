@@ -2,7 +2,6 @@
 document.addEventListener('DOMContentLoaded', () => {
     const searchButton = document.getElementById('searchButton');
     const cityInput = document.getElementById('cityInput');
-    const weatherDisplay = document.getElementById('weatherDisplay');
 
     // Load Hong Kong weather by default
     fetchWeather('Hong Kong');
