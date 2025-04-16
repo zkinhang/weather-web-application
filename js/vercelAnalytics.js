@@ -1,6 +1,7 @@
 // js/vercelAnalytics.js
 import { Analytics } from '@vercel/analytics';
 
+
 // Initialize the Analytics
 const analytics = new Analytics();
 
