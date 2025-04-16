@@ -61,8 +61,10 @@
         import { trackPageView, trackVisitor } from './js/vercelAnalytics.js';
         
         // Call trackPageView and trackVisitor on page load
-        trackPageView();
-        trackVisitor();
+        document.addEventListener('DOMContentLoaded', () => {
+            trackPageView();
+            trackVisitor();
+        });
     </script>
 </body>
 </html>
