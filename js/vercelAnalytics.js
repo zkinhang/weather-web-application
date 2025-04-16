@@ -20,5 +20,4 @@ export function trackVisitor() {
     analytics.event('Visitor', { timestamp: new Date().toISOString() });
 }
 
-// Example usage
-trackPageView(); // Call this function on page load
+ // Call this function on page load
