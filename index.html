@@ -55,5 +55,13 @@
     <script src="js/weatherDisplay.js"></script>
     <script src="js/searchHistory.js"></script>
     <script src="js/app.js"></script>
+    <script  src="js/vercelAnalytics.js" type ="module"></script>
+    <script type="module">
+        import { trackPageView, trackVisitor } from './js/vercelAnalytics.js';
+        
+        // Call trackPageView and trackVisitor on page load
+        trackPageView();
+        trackVisitor();
+    </script>
 </body>
 </html>
